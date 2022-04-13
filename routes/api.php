@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IdiomaController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\TestamentoController;
+use App\Http\Controllers\VersaoController;
 use App\Http\Controllers\VersiculoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +48,8 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         'testamento' => TestamentoController::class,
         'livro' => LivroController::class,
         'versiculo' => VersiculoController::class,
+        'idioma' => IdiomaController::class,
+        'versao' => VersaoController::class,
     ]);
 
     Route::post('/logout', [AuthController::class, 'logout']);
