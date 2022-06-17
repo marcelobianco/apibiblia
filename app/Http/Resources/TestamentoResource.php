@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class IdiomaResource extends JsonResource
+class TestamentoResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,17 +17,17 @@ class IdiomaResource extends JsonResource
         return [
             'id' => $this->id,
             'nome' => $this->nome,
-            'versoes' => new VersoesCollection($this->whenLoaded('versoes')) ,
+            'livros' => new LivrosCollection($this->whenLoaded('livros')),
             'links' => [
                 [
-                    'rel' => 'Alterar um idioma',
+                    'rel' => 'Alterar um testamento',
                     'type' => 'PUT',
-                    'link' => route('idioma.update', $this->id)
+                    'link' => route('testamento.update', $this->id)
                 ],
                 [
-                    'rel' => 'Excluir um idioma',
+                    'rel' => 'Excluir um testamento',
                     'type' => 'DELETE',
-                    'link' => route('idioma.destroy', $this->id)
+                    'link' => route('testamento.destroy', $this->id)
                 ]
             ]
         ];

@@ -15,8 +15,7 @@ class IdiomaController extends Controller
      */
     public function index()
     {
-        //return Idioma::all();
-        return IdiomaResource::collection(Idioma::paginate(5));
+        return Idioma::all();
     }
 
     /**
@@ -46,10 +45,10 @@ class IdiomaController extends Controller
      */
     public function show($idioma)
     {
-        $idioma = Idioma::find($idioma);
+        $idioma = Idioma::with('versoes')->find($idioma);
         if ($idioma) {
-            $idioma->versoes;
-            return $idioma;
+            //$idioma->versoes;
+            return new IdiomaResource($idioma);
         }
 
         return response()->json([

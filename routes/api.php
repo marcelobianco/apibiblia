@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IdiomaController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\TestamentoController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\VersaoController;
 use App\Http\Controllers\VersiculoController;
 use Illuminate\Http\Request;
@@ -57,3 +58,6 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+
+
+Route::post('/uploads', [UploadController::class, 'store']);
