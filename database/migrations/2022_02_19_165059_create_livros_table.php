@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('nome');
             $table->string('abreviacao');
             $table->unsignedBigInteger('testamento_id');
+            $table->unsignedBigInteger('versao_id')->nullable();
             $table->timestamps();
 
 
             $table->foreign('testamento_id')->references('id')->on('testamentos');
+            $table->foreign('versao_id')->references('id')->on('versoes');
         });
     }
 
